@@ -1,5 +1,8 @@
 import CPF from "./cpf"
 import RG from "./rg"
+import Telefone from "./telefone"
+import Produto from "./produto"
+import Servico from "./servico"
 
 export default class Cliente {
     nome: string

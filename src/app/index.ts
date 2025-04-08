@@ -1,5 +1,6 @@
 import Entrada from "../io/entrada"
 import Empresa from "../modelos/empresa"
+import AtualizacaoCliente from "../processos/atualizacaoCliente"
 import CadastroCliente from "../processos/cadastroCliente"
 import ExclusaoCliente from "../processos/exclusaoCliente"
 import ListagemClientes from "../processos/listagemClientes"
@@ -22,7 +23,7 @@ while(execucao) {
     switch(opcao) {
         case 0:
             execucao = false
-            console.log(`Encerrando...`)
+            console.log(`Volte sempre!`)
             break
         case 1:
             let cadastro = new CadastroCliente(empresa.getClientes)
@@ -33,6 +34,8 @@ while(execucao) {
             listagem.listar()
             break
         case 3:
+            let atualizacao = new AtualizacaoCliente(empresa.getClientes)
+            atualizacao.atualizar()
             break
         case 4:
             let exclusao = new ExclusaoCliente(empresa.getClientes)

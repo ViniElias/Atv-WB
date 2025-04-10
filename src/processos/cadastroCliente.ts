@@ -14,7 +14,7 @@ export default class CadastroCliente extends Cadastro {
     }
 
     cadastrar(): void {
-        console.log(`\nCadastro do cliente`)
+        console.log(`\n----- Cadastro de cliente -----`)
         let nome = this.entrada.receberTexto(`Nome: `)
         let nomeSocial = this.entrada.receberTexto(`Nome social: `)
         let valor = this.entrada.receberTexto(`CPF: `)

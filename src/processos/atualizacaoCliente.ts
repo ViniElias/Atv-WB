@@ -13,7 +13,7 @@ export default class AtualizacaoCliente extends Atualizacao {
     }
 
     atualizar(): void {
-        console.log(`Atualização de cliente`)
+        console.log(`\n----- Atualização de cliente -----`)
         let valor = this.entrada.receberTexto(`Digite o CPF do cliente a ser atualizado: `)
         const cliente = this.clientes.find(c => c.getCpf.getValor === valor)
 

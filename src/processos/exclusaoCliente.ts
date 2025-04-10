@@ -13,7 +13,7 @@ export default class ExclusaoCliente extends Exclusao {
     }
 
     excluir(): void {
-        console.log(`Exclusão do cliente`)
+        console.log(`\n----- Exclusão do cliente -----`)
         let valor = this.entrada.receberTexto(`Digite o CPF a ser excluído: `)
         const indice = this.clientes.findIndex(c => c.getCpf.getValor === valor)
 

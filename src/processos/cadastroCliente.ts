@@ -17,6 +17,7 @@ export default class CadastroCliente extends Cadastro {
         console.log(`\n----- Cadastro de cliente -----`)
         let nome = this.entrada.receberTexto(`Nome: `)
         let nomeSocial = this.entrada.receberTexto(`Nome social: `)
+        let genero = this.entrada.receberTexto(`Gênero (M/F): `)
         let valor = this.entrada.receberTexto(`CPF: `)
         let data = this.entrada.receberTexto(`Data de emissão do CPF (dd/mm/yyyy): `)
 
@@ -27,9 +28,13 @@ export default class CadastroCliente extends Cadastro {
 
         let dataEmissao = new Date(ano, mes, dia)
         let cpf = new CPF(valor, dataEmissao)
-        let cliente = new Cliente(nome, nomeSocial, cpf)
+        let cliente = new Cliente(nome, nomeSocial, genero, cpf)
 
-        this.clientes.push(cliente)
-        console.log(`\nCadastro concluído.`)
+        if(cliente.genero == 'M' || cliente.genero == 'F') {
+            this.clientes.push(cliente)
+            console.log(`\nCadastro concluído.`)
+        } else {
+            console.log(`\nGênero inválido.`)
+        }
     }
 }

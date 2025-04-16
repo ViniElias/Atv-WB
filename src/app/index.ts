@@ -1,4 +1,6 @@
 import Entrada from "../io/entrada"
+import Cliente from "../modelos/cliente"
+import CPF from "../modelos/cpf"
 import Empresa from "../modelos/empresa"
 import AtualizacaoCliente from "../processos/atualizacaoCliente"
 import AtualizacaoProduto from "../processos/atualizacaoProduto"
@@ -10,6 +12,7 @@ import ExclusaoCliente from "../processos/exclusaoCliente"
 import ExclusaoProduto from "../processos/exclusaoProduto"
 import ExclusaoServico from "../processos/exclusaoServico"
 import ListagemClientes from "../processos/listagemClientes"
+import ListagemGenero from "../processos/listagemGenero"
 import ListagemProdutos from "../processos/listagemProdutos"
 import ListagemServicos from "../processos/listagemServicos"
 
@@ -17,7 +20,10 @@ console.log(`Bem-vindo ao cadastro de clientes do Grupo World Beauty!`)
 let empresa = new Empresa()
 let execucao = true
 
-while(execucao) {
+let cpf1 = new CPF('123', new Date(6, 12, 2005))
+let cliente1 = new Cliente('Vinicius', 'Vinicius', 'M', cpf1)
+
+while(execucao) {   
     console.log(`\n----- Menu World Beauty -----`)
     console.log(`1 - Clientes`)
     console.log(`2 - Produtos`)
@@ -135,5 +141,26 @@ while(execucao) {
                     console.log(`Opção inválida.`)
                 }
                 break
+        case 4:
+            console.log(`\n----- Menu de Listagem -----`)
+            console.log(`1 - `)
+            console.log(`2 - Listar clientes por gênero`)
+            console.log(`3 - `)
+            console.log(`4 - `)
+            console.log(`0 - Voltar`)
+
+            entrada = new Entrada()
+            opcao = entrada.receberNumero(`Escolha uma opção: `)
+
+            switch(opcao) {
+                case 0:
+                    break
+                case 1:
+                    break
+                case 2:
+                    let listagemGenero = new ListagemGenero(empresa.getClientes)
+                    listagemGenero.listar()
+                    break
+            }
         }
 }

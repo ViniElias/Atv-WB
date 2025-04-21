@@ -30,7 +30,7 @@ export default class CadastroCliente extends Cadastro {
         let cpf = new CPF(valor, dataEmissao)
         let cliente = new Cliente(nome, nomeSocial, genero, cpf)
 
-        if(cliente.genero == 'M' || cliente.genero == 'F') {
+        if(cliente.genero == 'M' || cliente.genero == 'F' || cliente.genero == 'm' || cliente.genero == 'f') {
             this.clientes.push(cliente)
             console.log(`\nCadastro concluído.`)
         } else {

@@ -17,6 +17,8 @@ export default class ListagemGenero extends Listagem {
             console.log(`Nome Social: ${cliente.nomeSocial}`)
             console.log(`Gênero: ${cliente.genero}`)
             console.log(`CPF: ${cliente.getCpf.getValor}`)
+            console.log(`Produtos: ${cliente.getProdutosConsumidos.map(p => p.nome).join(", ")}`)
+            console.log(`Serviços: ${cliente.getServicosConsumidos.map(s => s.nome).join(", ")}`)
             console.log(`---------------------------------`)
         })
     }

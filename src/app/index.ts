@@ -1,6 +1,4 @@
 import Entrada from "../io/entrada"
-import Cliente from "../modelos/cliente"
-import CPF from "../modelos/cpf"
 import Empresa from "../modelos/empresa"
 import AtualizacaoCliente from "../processos/atualizacaoCliente"
 import AtualizacaoProduto from "../processos/atualizacaoProduto"
@@ -15,13 +13,14 @@ import ListagemClientes from "../processos/listagemClientes"
 import ListagemGenero from "../processos/listagemGenero"
 import ListagemProdutos from "../processos/listagemProdutos"
 import ListagemServicos from "../processos/listagemServicos"
+import { clientes, produtos, servicos } from "./dadosIniciais"
 
 console.log(`Bem-vindo ao cadastro de clientes do Grupo World Beauty!`)
 let empresa = new Empresa()
+clientes.forEach(cliente => empresa.getClientes.push(cliente))
+produtos.forEach(produto => empresa.getProdutos.push(produto))
+servicos.forEach(servico => empresa.getServicos.push(servico))
 let execucao = true
-
-let cpf1 = new CPF('123', new Date(6, 12, 2005))
-let cliente1 = new Cliente('Vinicius', 'Vinicius', 'M', cpf1)
 
 while(execucao) {   
     console.log(`\n----- Menu World Beauty -----`)

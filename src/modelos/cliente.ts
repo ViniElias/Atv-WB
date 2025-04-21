@@ -20,6 +20,8 @@ export default class Cliente {
         this.nomeSocial = nomeSocial
         this.genero = genero
         this.cpf = cpf
+        this.produtosConsumidos = []
+        this.servicosConsumidos = []
     }
 
     get getCpf(): CPF {

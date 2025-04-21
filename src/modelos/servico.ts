@@ -1,12 +1,14 @@
 export default class Servico {
-    id: string
     nome: string
     preco: string
+    id: string
+    vendas: number
 
     constructor(id: string, nome: string, preco: string) {
-        this.id = id
         this.nome = nome
         this.preco = preco
+        this.id = id
+        this.vendas = 0
     }
 
     get getId(): string {

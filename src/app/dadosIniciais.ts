@@ -84,12 +84,18 @@ export const servicos: Servico[] = [
 
 // Adicionando um produto e um serviço aleatório para cada cliente
 clientes.forEach(cliente => {
-    const produtoAleatorio = produtos[Math.floor(Math.random() * produtos.length)]
-    const servicoAleatorio = servicos[Math.floor(Math.random() * servicos.length)]
+    const qtdProdutos = Math.floor(Math.random() * 5)
+    const qtdServicos = Math.floor(Math.random() * 5)
 
-    cliente.getProdutosConsumidos.push(produtoAleatorio)
-    cliente.getServicosConsumidos.push(servicoAleatorio)
+    for (let i = 0; i < qtdProdutos; i++) {
+        const produtoAleatorio = produtos[Math.floor(Math.random() * produtos.length)]
+        cliente.getProdutosConsumidos.push(produtoAleatorio)
+        produtoAleatorio.vendas++
+    }
 
-    produtoAleatorio.vendas++
-    servicoAleatorio.vendas++
+    for (let i = 0; i < qtdServicos; i++) {
+        const servicoAleatorio = servicos[Math.floor(Math.random() * servicos.length)]
+        cliente.getServicosConsumidos.push(servicoAleatorio)
+        servicoAleatorio.vendas++
+    }
 })

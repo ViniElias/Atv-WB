@@ -6,11 +6,17 @@ import AtualizacaoServico from "../processos/atualizacaoServico"
 import CadastroCliente from "../processos/cadastroCliente"
 import CadastroProduto from "../processos/cadastroProduto"
 import CadastroServico from "../processos/cadastroServico"
+import Consumo from "../processos/consumo"
 import ExclusaoCliente from "../processos/exclusaoCliente"
 import ExclusaoProduto from "../processos/exclusaoProduto"
 import ExclusaoServico from "../processos/exclusaoServico"
 import ListagemClientes from "../processos/listagemClientes"
 import ListagemGenero from "../processos/listagemGenero"
+import ListagemMaiorQuantidade from "../processos/listagemMaiorQuantidade"
+import ListagemMaiorValor from "../processos/listagemMaiorValor"
+import ListagemMaisConsumidos from "../processos/listagemMaisConsumidos"
+import ListagemMaisGenero from "../processos/listagemMaisGenero"
+import ListagemMenorQuantidade from "../processos/listagemMenorQuantidade"
 import ListagemProdutos from "../processos/listagemProdutos"
 import ListagemServicos from "../processos/listagemServicos"
 import { clientes, produtos, servicos } from "./dadosIniciais"
@@ -44,6 +50,7 @@ while(execucao) {
             console.log(`2 - Editar`)
             console.log(`3 - Excluir`)
             console.log(`4 - Listar todos`)
+            console.log(`5 - Adicionar consumo`)
             console.log(`0 - Voltar`)
 
             entrada = new Entrada()
@@ -67,6 +74,10 @@ while(execucao) {
                 case 4:
                     let listagem = new ListagemClientes(empresa.getClientes)
                     listagem.listar()
+                    break
+                case 5:
+                    let consumo = new Consumo(empresa.getClientes, empresa.getProdutos, empresa.getServicos)
+                    consumo.consumir()
                     break
                 default:
                     console.log(`Opção inválida.`)
@@ -142,10 +153,12 @@ while(execucao) {
                 break
         case 4:
             console.log(`\n----- Menu de Listagem -----`)
-            console.log(`1 - `)
+            console.log(`1 - Top 10 clientes que mais consumiram em quantidade`)
             console.log(`2 - Listar clientes por gênero`)
-            console.log(`3 - `)
-            console.log(`4 - `)
+            console.log(`3 - Produtos ou serviços mais consumidos`)
+            console.log(`4 - Produtos ou serviços mais consumidos por gênero`)
+            console.log(`5 - Top 10 clientes que menos consumiram em quantidade`)
+            console.log(`6 - Top 5 clientes que mais consumiram em valor`)
             console.log(`0 - Voltar`)
 
             entrada = new Entrada()
@@ -155,10 +168,28 @@ while(execucao) {
                 case 0:
                     break
                 case 1:
+                    let listagemMaiorQuantidade = new ListagemMaiorQuantidade(empresa.getClientes)
+                    listagemMaiorQuantidade.listar()
                     break
                 case 2:
                     let listagemGenero = new ListagemGenero(empresa.getClientes)
                     listagemGenero.listar()
+                    break
+                case 3:
+                    let listagemMais = new ListagemMaisConsumidos(empresa.getClientes)
+                    listagemMais.listar()
+                    break
+                case 4:
+                    let listagemMaisGenero = new ListagemMaisGenero(empresa.getClientes)
+                    listagemMaisGenero.listar()
+                    break
+                case 5:
+                    let listagemMenos = new ListagemMenorQuantidade(empresa.getClientes)
+                    listagemMenos.listar()
+                    break
+                case 6:
+                    let listagemMaiorValor = new ListagemMaiorValor(empresa.getClientes)
+                    listagemMaiorValor.listar()
                     break
             }
         }

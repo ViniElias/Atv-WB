@@ -44,6 +44,7 @@ export default class Consumo {
                         } else {
                             clienteConsumo.getProdutosConsumidos.push(produtoConsumido)
                             produtoConsumido.vendas = produtoConsumido.vendas + 1
+                            execucao = false
                         }
                         break
                     case "2":
@@ -55,6 +56,7 @@ export default class Consumo {
                         } else {
                             clienteConsumo.getServicosConsumidos.push(servicoConsumido)
                             servicoConsumido.vendas = servicoConsumido.vendas + 1
+                            execucao = false
                         }
                         break
                     case "0":
